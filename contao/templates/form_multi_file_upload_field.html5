@@ -1,0 +1,13 @@
+<?php $this->extend('form_row'); ?>
+
+<?php $this->block('label'); ?>
+	<?= $this->generateLabel() ?>
+<?php $this->endblock(); ?>
+
+<?php $this->block('field'); ?>
+	<?php if ($this->hasErrors()): ?>
+		<p class="error"><?= $this->getErrorAsString(); ?></p>
+	<?php endif; ?>
+
+	<input type="file" multiple name="<?= $this->name ?>[]" id="ctrl_<?= $this->id ?>" class="upload<?php if ($this->class): ?> <?= $this->class ?><?php endif; ?>"<?= $this->getAttributes() ?>>
+<?php $this->endblock(); ?>
